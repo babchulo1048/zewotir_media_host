@@ -1,8 +1,21 @@
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Play, Download } from "lucide-react";
-import heroImage from "@/assets/hero-image.jpg";
+import heroSmall from "@/assets/z-2.jpeg";
+import heroLarge from "@/assets/s-4.jpeg";
 
 const Hero = () => {
+  const [imageSrc, setImageSrc] = useState(heroSmall);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setImageSrc(window.innerWidth >= 1024 ? heroLarge : heroSmall);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -11,11 +24,14 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src={heroImage}
+          src={imageSrc}
           alt="Zewotir D. Alemu"
           className="w-full h-full object-cover"
         />
@@ -30,18 +46,20 @@ const Hero = () => {
               Media Professional
             </span>
           </div>
-          
+
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
             Zewotir D. Alemu
           </h1>
-          
+
           <p className="text-xl sm:text-2xl md:text-3xl text-muted-foreground mb-4 font-light">
-            TV Host • Voice-Over Artist • Sketch Artist
+            EBS TV Host | Former Radio host | MC | Moderator | Voiceover artist
+            | TV news anchor
           </p>
-          
+
           <p className="text-base sm:text-lg text-muted-foreground mb-8 max-w-2xl leading-relaxed">
-            Bringing stories to life through broadcast media, voice performance, and visual art. 
-            Over a decade of experience in engaging audiences across multiple creative disciplines.
+            Bringing stories to life through broadcast media, voice performance,
+            and visual art. Over a decade of experience in engaging audiences
+            across multiple creative disciplines.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">

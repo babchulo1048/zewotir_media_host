@@ -2,8 +2,10 @@ import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card } from "@/components/ui/card";
 import { Play, Volume2, Image } from "lucide-react";
-import mediaWorkImage from "@/assets/media-work.jpg";
-import voiceoverImage from "@/assets/voiceover.jpg";
+import mediaWorkImage from "@/assets/m-1.jpeg";
+import mediaWorkImage2 from "@/assets/m-2.jpeg";
+import mediaWorkImage3 from "@/assets/m-3.jpeg";
+import voiceoverImage from "@/assets/z-3.jpeg";
 import sketchArtImage from "@/assets/sketch-art.jpg";
 import sketch1 from "@/assets/sketch-1.jpg";
 import sketch2 from "@/assets/sketch-2.jpg";
@@ -13,15 +15,39 @@ const Portfolio = () => {
   const [activeTab, setActiveTab] = useState("media");
 
   const mediaWork = [
-    { title: "Prime Time News Hour", type: "TV Show", thumbnail: mediaWorkImage },
-    { title: "Cultural Exchange Series", type: "Documentary", thumbnail: mediaWorkImage },
-    { title: "Morning Show Feature", type: "Talk Show", thumbnail: mediaWorkImage },
+    {
+      title: "Man Yashenfal",
+      type: "TV Show",
+      thumbnail: mediaWorkImage,
+    },
+    {
+      title: "Cultural Exchange Series",
+      type: "TV Show",
+      thumbnail: mediaWorkImage2,
+    },
+    {
+      title: "Man Yashenfal",
+      type: "TV Show",
+      thumbnail: mediaWorkImage3,
+    },
   ];
 
   const voiceoverSamples = [
-    { title: "Corporate Presentation", client: "Tech Solutions Inc.", thumbnail: voiceoverImage },
-    { title: "Commercial Advertisement", client: "National Brand", thumbnail: voiceoverImage },
-    { title: "Documentary Narration", client: "Production Studio", thumbnail: voiceoverImage },
+    {
+      title: "Corporate Presentation",
+      client: "Tech Solutions Inc.",
+      thumbnail: voiceoverImage,
+    },
+    {
+      title: "Commercial Advertisement",
+      client: "National Brand",
+      thumbnail: voiceoverImage,
+    },
+    {
+      title: "Documentary Narration",
+      client: "Production Studio",
+      thumbnail: voiceoverImage,
+    },
   ];
 
   const artGallery = [
@@ -45,17 +71,26 @@ const Portfolio = () => {
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-3 mb-12 bg-secondary h-auto p-1">
-            <TabsTrigger value="media" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground py-3">
+            <TabsTrigger
+              value="media"
+              className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground py-3"
+            >
               <Play className="w-4 h-4 mr-2" />
               <span className="hidden sm:inline">TV & Media</span>
               <span className="sm:hidden">Media</span>
             </TabsTrigger>
-            <TabsTrigger value="voiceover" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground py-3">
+            <TabsTrigger
+              value="voiceover"
+              className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground py-3"
+            >
               <Volume2 className="w-4 h-4 mr-2" />
               <span className="hidden sm:inline">Voice-Over</span>
               <span className="sm:hidden">Voice</span>
             </TabsTrigger>
-            <TabsTrigger value="art" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground py-3">
+            <TabsTrigger
+              value="art"
+              className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground py-3"
+            >
               <Image className="w-4 h-4 mr-2" />
               <span className="hidden sm:inline">Sketch Art</span>
               <span className="sm:hidden">Art</span>
@@ -65,7 +100,10 @@ const Portfolio = () => {
           <TabsContent value="media" className="animate-fade-in">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {mediaWork.map((item, index) => (
-                <Card key={index} className="overflow-hidden group cursor-pointer hover:shadow-glow transition-all bg-card border-primary/20">
+                <Card
+                  key={index}
+                  className="overflow-hidden group cursor-pointer hover:shadow-glow transition-all bg-card border-primary/20"
+                >
                   <div className="relative aspect-video overflow-hidden">
                     <img
                       src={item.thumbnail}
@@ -88,7 +126,10 @@ const Portfolio = () => {
           <TabsContent value="voiceover" className="animate-fade-in">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {voiceoverSamples.map((item, index) => (
-                <Card key={index} className="overflow-hidden group cursor-pointer hover:shadow-glow transition-all bg-card border-primary/20">
+                <Card
+                  key={index}
+                  className="overflow-hidden group cursor-pointer hover:shadow-glow transition-all bg-card border-primary/20"
+                >
                   <div className="relative aspect-video overflow-hidden">
                     <img
                       src={item.thumbnail}
@@ -101,7 +142,9 @@ const Portfolio = () => {
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                    <p className="text-muted-foreground text-sm">{item.client}</p>
+                    <p className="text-muted-foreground text-sm">
+                      {item.client}
+                    </p>
                   </div>
                 </Card>
               ))}
@@ -111,7 +154,10 @@ const Portfolio = () => {
           <TabsContent value="art" className="animate-fade-in">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {artGallery.map((item, index) => (
-                <Card key={index} className="overflow-hidden group cursor-pointer hover:shadow-glow transition-all bg-card border-primary/20">
+                <Card
+                  key={index}
+                  className="overflow-hidden group cursor-pointer hover:shadow-glow transition-all bg-card border-primary/20"
+                >
                   <div className="relative aspect-square overflow-hidden">
                     <img
                       src={item.image}
@@ -124,7 +170,9 @@ const Portfolio = () => {
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                    <p className="text-muted-foreground text-sm">{item.medium}</p>
+                    <p className="text-muted-foreground text-sm">
+                      {item.medium}
+                    </p>
                   </div>
                 </Card>
               ))}
