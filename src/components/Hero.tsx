@@ -101,9 +101,11 @@ import { Button } from "@/components/ui/button";
 import { Play, Download } from "lucide-react";
 import heroSmall from "@/assets/z-2.jpeg";
 import heroLarge from "@/assets/s-4.jpeg";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
   const [imageSrc, setImageSrc] = useState(heroSmall);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleResize = () => {
@@ -158,7 +160,7 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 size="lg"
-                onClick={() => scrollToSection("portfolio")}
+                onClick={() => navigate("/portfolio")}
                 className="bg-gradient-accent hover:shadow-glow transition-all text-base sm:text-lg px-8 py-6"
               >
                 <Play className="mr-2" size={20} />
