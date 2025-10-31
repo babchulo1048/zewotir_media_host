@@ -2,7 +2,12 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -27,6 +32,11 @@ export default {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
         },
+        // Add Brand Maroon
+        "brand-maroon": {
+          DEFAULT: "hsl(var(--brand-maroon))",
+          foreground: "hsl(var(--brand-maroon-foreground))",
+        },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
@@ -48,12 +58,18 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      // 1. Add Typography Configuration
+      fontFamily: {
+        serif: ['"Playfair Display"', "serif"], // Modern Serif for Headings
+        sans: ["Lato", "sans-serif"], // Clean Sans-serif for Body Text
+        // Ensure other custom fonts are defined here if needed
+      },
       backgroundImage: {
-        'gradient-hero': 'var(--gradient-hero)',
-        'gradient-accent': 'var(--gradient-accent)',
+        "gradient-hero": "var(--gradient-hero)",
+        "gradient-accent": "var(--gradient-accent)",
       },
       boxShadow: {
-        'glow': 'var(--glow-primary)',
+        glow: "var(--glow-primary)",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -81,7 +97,7 @@ export default {
           "0%": { opacity: "0", transform: "translateX(-20px)" },
           "100%": { opacity: "1", transform: "translateX(0)" },
         },
-        "glow": {
+        glow: {
           "0%, 100%": { boxShadow: "0 0 20px hsla(45 90% 60% / 0.3)" },
           "50%": { boxShadow: "0 0 40px hsla(45 90% 60% / 0.5)" },
         },
@@ -92,7 +108,7 @@ export default {
         "fade-in": "fade-in 0.6s ease-out",
         "fade-in-up": "fade-in-up 0.8s ease-out",
         "slide-in": "slide-in 0.5s ease-out",
-        "glow": "glow 2s ease-in-out infinite",
+        glow: "glow 2s ease-in-out infinite",
       },
     },
   },

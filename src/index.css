@@ -1,3 +1,6 @@
+/* ADD FONT IMPORTS AT THE TOP */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,41 +11,46 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 220 20% 10%;
-    --foreground: 0 0% 98%;
+    /* --- ZEWOTIR BRAND PALETTE (Refined, Minimal, Charismatic) --- */
 
-    --card: 220 18% 12%;
-    --card-foreground: 0 0% 98%;
-
-    --popover: 220 20% 8%;
-    --popover-foreground: 0 0% 98%;
-
+    /* NEUTRAL FOUNDATION (Soft Cream / White) */
+    --background: 40 10% 98%; /* Soft Cream/Off-White for sophistication */
+    --foreground: 220 20% 10%; /* Deep Navy/Near-Black for text (Readability) */
+    /* ... rest of the HSL color variables from Part 2 ... */
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 10%;
     --primary: 45 90% 60%;
     --primary-foreground: 220 20% 10%;
-
-    --secondary: 220 15% 20%;
+    --secondary: 220 25% 15%;
     --secondary-foreground: 0 0% 98%;
-
-    --muted: 220 15% 18%;
-    --muted-foreground: 0 0% 70%;
-
+    --brand-maroon: 335 70% 30%;
+    --brand-maroon-foreground: 0 0% 98%;
+    --muted: 220 15% 90%;
+    --muted-foreground: 220 10% 45%;
     --accent: 45 90% 60%;
     --accent-foreground: 220 20% 10%;
-
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-
-    --border: 220 15% 20%;
-    --input: 220 15% 18%;
-    --ring: 45 90% 60%;
-
+    --border: 220 15% 85%;
+    --input: 0 0% 100%;
+    --ring: 220 25% 15%;
     --radius: 0.75rem;
 
     /* Broadcast theme gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(220 20% 10%) 0%, hsl(220 25% 15%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(45 90% 60%) 0%, hsl(38 95% 55%) 100%);
+    --gradient-hero: linear-gradient(
+      135deg,
+      hsl(40 10% 98%) 0%,
+      hsl(30 15% 95%) 100%
+    );
+    --gradient-accent: linear-gradient(
+      135deg,
+      hsl(45 90% 60%) 0%,
+      hsl(38 95% 55%) 100%
+    );
     --glow-primary: 0 8px 32px hsla(45 90% 60% / 0.3);
-    
+
     /* Animation variables */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -54,6 +62,17 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    /* APPLY FONT AND COLOR TO BODY */
+    @apply bg-background text-foreground font-sans; /* <-- **KEY UPDATE: font-sans (Lato) applied globally** */
+  }
+
+  /* **HEADINGS INHERIT SERIF FONT GLOBALLY** */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif; /* <-- **KEY UPDATE: font-serif (Playfair Display) applied to headings** */
   }
 }
