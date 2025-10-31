@@ -24,7 +24,7 @@ const previewLinks = [
     description:
       "Reflections on PR strategy, media, communication, and growth.",
     icon: PencilLine,
-    color: "text-blue-600", // Using a solid blue for secondary action/clarity
+    color: "text-primary", // Using a solid blue for secondary action/clarity
     link: "/blog",
   },
   {
@@ -32,7 +32,7 @@ const previewLinks = [
     description:
       "A clean grid gallery of personal art—adding warmth and personality.",
     icon: ImageIcon, // Changed to Image/ImageIcon for visual art context
-    color: "text-green-600", // Using a distinct color for variety (can be brand-maroon/tertiary)
+    color: "text-primary", // Using a distinct color for variety (can be brand-maroon/tertiary)
     link: "/art",
   },
 ];
