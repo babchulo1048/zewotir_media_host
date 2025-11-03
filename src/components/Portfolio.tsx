@@ -26,7 +26,8 @@ interface PortfolioAsset {
 }
 
 // const API_BASE_URL = "http://localhost:3001/api/v1/portfolio/assets";
-const API_BASE_URL = "https://zewotir-media-host-backend.onrender.com";
+const API_BASE_URL =
+  "https://zewotir-media-host-backend.onrender.com/api/v1/portfolio/assets";
 
 const Portfolio = () => {
   const [activeTab, setActiveTab] = useState("media");
