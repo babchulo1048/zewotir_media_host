@@ -13,6 +13,7 @@ import Contact from "@/components/Contact";
 import About from "./pages/About";
 import SketchArtPage from "./pages/SketchArtPage";
 import ScrollToTop from "./components/ScrollToTop";
+import BlogDetail from "./components/BlogDetail";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/about" element={<About />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:id" element={<BlogDetail />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/art" element={<SketchArtPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
