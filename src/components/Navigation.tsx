@@ -3,10 +3,11 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Navigation = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -90,7 +91,7 @@ const Navigation = () => {
             })}
             <Button
               // Contact button handles both scroll and navigation if needed
-              onClick={() => handleNavLinkClick("contact")}
+              onClick={() => navigate("/contact")}
               variant="default" // Use 'default' variant for the primary button
               className="hover:shadow-glow transition-all"
             >

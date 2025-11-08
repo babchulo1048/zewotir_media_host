@@ -1,8 +1,12 @@
 // src/components/Testimonials.tsx
 
-import { Quote } from "lucide-react";
+import { Quote, ChevronRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
-import { ChevronRight } from "lucide-react";
+
+// ✅ Import your logos
+import ebsLogo from "@/assets/ebs.jpeg";
+import globalTechLogo from "@/assets/global.jpeg";
+import addisEventsLogo from "@/assets/addis.png";
 
 const testimonialData = [
   {
@@ -10,18 +14,21 @@ const testimonialData = [
       "Zewotir is not just a host; he's a strategic communicator who deeply understands audience engagement. A true professional.",
     name: "Dr. Elias K.",
     title: "Media Producer, EBS",
+    logo: ebsLogo,
   },
   {
     quote:
       "His voice work elevated our corporate campaign. Authority, warmth, and clarity—all delivered flawlessly.",
     name: "Aisha M.",
     title: "Marketing Director, Global Tech",
+    logo: globalTechLogo,
   },
   {
     quote:
       "A charismatic presence and an incredible ability to connect with people. He commands the stage.",
     name: "Lulseged T.",
     title: "Event Organizer, Addis Events",
+    logo: addisEventsLogo,
   },
 ];
 
@@ -40,9 +47,18 @@ const Testimonials = () => {
           {testimonialData.map((t, index) => (
             <Card
               key={index}
-              className="p-8 border-secondary/20 bg-card hover:shadow-lg transition-shadow duration-300 animate-fade-in-up"
+              className="p-8 border-secondary/20 bg-card hover:shadow-lg transition-shadow duration-300 animate-fade-in-up flex flex-col justify-between"
               style={{ animationDelay: `${0.1 * index}s` }}
             >
+              {/* ✅ Logo Section */}
+              <div className="flex justify-center mb-6">
+                <img
+                  src={t.logo}
+                  alt={`${t.title} logo`}
+                  className="w-20 h-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
+                />
+              </div>
+
               <Quote className="w-8 h-8 text-primary mb-4" />
               <blockquote className="text-lg italic font-serif text-foreground mb-6 leading-relaxed">
                 "{t.quote}"
@@ -55,7 +71,7 @@ const Testimonials = () => {
           ))}
         </div>
 
-        {/* Optional Strategic Enhancement: Full Testimonials Page CTA */}
+        {/* Optional CTA */}
         <div className="text-center mt-16">
           <a
             href="/testimonials"
